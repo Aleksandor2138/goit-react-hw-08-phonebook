@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import React, { useState } from 'react';
-import { selectItem } from 'redux/contactsSlise';
-import {addContact} from 'redux/searchAPI'
+import { selectItem } from 'redux/contacts/contactsSlise';
+import { addContact } from 'redux/contacts/requestAPI';
 import { Span, Input, Button, Form } from './ContactForm.styled';
 
 const BASE_STATE = {

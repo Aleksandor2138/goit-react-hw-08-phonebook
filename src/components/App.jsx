@@ -1,15 +1,12 @@
-import React, {  useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchAll } from 'redux/searchAPI';
-import { selectIsLoading, selectError } from 'redux/contactsSlise';
+import { fetchAll } from 'redux/contacts/requestAPI';
+import { selectIsLoading, selectError } from 'redux/contacts/contactsSlise';
 import { Loader } from './Loader/Loader';
 import { Filter } from './Phonebook/Filter/Filter';
 import ContactForm from './Phonebook/ContactForm/ContactForm';
 import ContactList from './Phonebook/ContactList/ContactList';
 import { Section, Containet, H1, DivList } from './App.stiled';
-
-
-
 
 const App = () => {
   const dispatch = useDispatch();
