@@ -1,9 +1,9 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 // import PropTypes from 'prop-types';
-import { selectItem } from 'redux/contacts/contactsSlise';
+import { selectItem } from 'redux/contacts/contactsSelectors';
 import { deleteContact } from 'redux/contacts/requestAPI';
-import { selectFilter } from 'redux/contacts/filterSlise.js';
+import { selectFilter } from 'redux/contacts/contactsSelectors';
 import { NameContacts, List, Elements, Button } from './ContactList.styled';
 
 const ContactList = () => {
