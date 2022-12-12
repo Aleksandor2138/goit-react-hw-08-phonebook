@@ -1,10 +1,10 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selecUsername } from 'redux/authorization/authSelectors';
+import { selectUsername } from 'redux/authorization/authSelectors';
 import { logOut } from 'redux/authorization/requestAPI';
 
 const Logout = () => {
-    const user = useSelector(selecUsername);
+    const user = useSelector(selectUsername);
 
     const dispatch = useDispatch();
 

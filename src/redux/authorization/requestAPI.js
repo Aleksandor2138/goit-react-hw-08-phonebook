@@ -46,7 +46,7 @@ export const logIn = createAsyncThunk('auth/login',
 // разлогинивание пользователя
 
 export const logOut = createAsyncThunk('auth/logout',
-    async () => {
+    async (_, thunkAPI) => {
         try {
             await axios.post('/users/logout');
             token.unset();
