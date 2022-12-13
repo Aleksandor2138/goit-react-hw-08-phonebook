@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { filterValue } from '../../../redux/contacts/filterSlise';
 import { selectFilter } from '../../../redux/contacts/contactsSelectors';
 // import PropTypes from 'prop-types';
-import { Input, Span } from './Filter.styled';
+import FilterSCSS from './Filter.module.scss';
 
 export const Filter = () => {
   const dispatch = useDispatch();
@@ -11,9 +11,16 @@ export const Filter = () => {
     dispatch(filterValue(event.target.value.toLowerCase()));
   };
   return (
-    <label htmlFor="filter">
-      <Span>Find contacts by name</Span>
-      <Input onChange={onChange} type="filter" name="filter" value={filter} />
+    <label htmlFor="filter" className={FilterSCSS.label}>
+      {/* <p className={FilterSCSS.par}>Find contacts by name</p> */}
+      <input
+        className={FilterSCSS.input}
+        onChange={onChange}
+        type="filter"
+        name="filter"
+        value={filter}
+        placeholder="Find contacts by name"
+      />
     </label>
   );
 };

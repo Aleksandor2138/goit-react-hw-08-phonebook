@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectItem } from 'redux/contacts/contactsSelectors';
 import { deleteContact } from 'redux/contacts/requestAPI';
 import { selectFilter } from 'redux/contacts/contactsSelectors';
-import { NameContacts, List, Elements, Button } from './ContactList.styled';
+import ContactListSCSS from './ContactList.module.scss';
 
 const ContactList = () => {
   const dispatch = useDispatch();
@@ -24,18 +24,23 @@ const ContactList = () => {
   const filterOne = contactFilter();
   const list = filterOne ? filterOne : contacts;
   return (
-    <List>
+    <ul className={ContactListSCSS.list}>
       {list.map(({ id, name, number }) => (
-        <Elements key={id}>
-          <NameContacts>
+        <li key={id} className={ContactListSCSS.item}>
+          <p className={ContactListSCSS.par}>
             {name}: {number}
-          </NameContacts>
-          <Button type="button" name={id} onClick={delContacts}>
+          </p>
+          <button
+            className={ContactListSCSS.button}
+            type="button"
+            name={id}
+            onClick={delContacts}
+          >
             Delete
-          </Button>
-        </Elements>
+          </button>
+        </li>
       ))}
-    </List>
+    </ul>
   );
 };
 

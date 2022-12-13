@@ -6,7 +6,8 @@ import { Loader } from '../components/Loader/Loader';
 import { Filter } from '../components/Phonebook/Filter/Filter';
 import ContactForm from '../components/Phonebook/ContactForm/ContactForm';
 import ContactList from '../components/Phonebook/ContactList/ContactList';
-import { Section, Containet, H1, DivList } from '../components/App.stiled';
+// import { Section, Containet, H1, DivList } from '../components/App.stiled';
+import PhonebookSCSS from './Phonebook.module.scss'
 
 const PhoneBook = () => {
     const dispatch = useDispatch();
@@ -17,21 +18,20 @@ const PhoneBook = () => {
         dispatch(fetchAll());
     }, [dispatch]);
     return (
-        <Section>
-            <Containet>
-                <div>
-                    <H1>Phonebook</H1>
+        <section className={PhonebookSCSS.section}>
+            <div className={PhonebookSCSS.container}>
+                {isLoading && !error && <Loader />}
+                <h1 className={PhonebookSCSS.header}>Phonebook</h1>
+                <Filter />
+                <div className={PhonebookSCSS.bottom}>
                     <ContactForm />
+                    <div className={PhonebookSCSS.contacts}>
+                        <h2 className={PhonebookSCSS.h2}>Contacts</h2> 
+                        <ContactList />
+                    </div>
                 </div>
-
-                <DivList>
-                    <h2>Contacts</h2>
-                    <Filter />
-                    {isLoading && !error && <Loader />}
-                    <ContactList />
-                </DivList>
-            </Containet>
-        </Section>
+            </div>
+        </section>
     )
 }
 export default PhoneBook;

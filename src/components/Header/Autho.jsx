@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom';
+import HeaderSCSS from './Header.module.scss';
 
 const RegistrAutho = () => {
     return (
-            <div>
-                <Link to="/sign-in">Sign In</Link>
-                <Link to="/sign-up">Sign Up</Link>
-            </div>
+        <div className={HeaderSCSS.log}>
+            <Link to="/sign-in" className={HeaderSCSS.linkAuth}>SignIn</Link>
+            <Link to="/sign-up" className={HeaderSCSS.linkAuth}>SignUp</Link>
+        </div>
     );
 };
 export default RegistrAutho;

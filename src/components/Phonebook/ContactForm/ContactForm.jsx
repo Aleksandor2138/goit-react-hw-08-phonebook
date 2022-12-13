@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import React, { useState } from 'react';
 import { selectItem } from 'redux/contacts/contactsSelectors';
 import { addContact } from 'redux/contacts/requestAPI';
-import { Span, Input, Button, Form } from './ContactForm.styled';
+import ContactFormSCSS from './ContactForm.module.scss';
 
 const BASE_STATE = {
   name: '',
@@ -32,10 +32,11 @@ const ContactForm = () => {
   };
 
   return (
-    <Form onSubmit={onSubmit}>
-      <label htmlFor="name">
-        <Span>Name</Span>
-        <Input
+    <form onSubmit={onSubmit} className={ContactFormSCSS.form}>
+      <label htmlFor="name" className={ContactFormSCSS.label}>
+        <p className={ContactFormSCSS.paragraph}>Name</p>
+        <input
+          className={ContactFormSCSS.input}
           onChange={onChange}
           type="text"
           name="name"
@@ -47,9 +48,10 @@ const ContactForm = () => {
         />
       </label>
 
-      <label htmlFor="number">
-        <Span>Number</Span>
-        <Input
+      <label htmlFor="number" className={ContactFormSCSS.label}>
+        <p className={ContactFormSCSS.paragraph}>Number</p>
+        <input
+          className={ContactFormSCSS.input}
           onChange={onChange}
           type="tel"
           name="number"
@@ -61,8 +63,10 @@ const ContactForm = () => {
         />
       </label>
 
-      <Button type="submit">Add contact</Button>
-    </Form>
+      <button className={ContactFormSCSS.button} type="submit">
+        Add contact
+      </button>
+    </form>
   );
 };
 

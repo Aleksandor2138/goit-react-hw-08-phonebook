@@ -1,11 +1,11 @@
-
+import PagesSCSS from './Pages.module.scss'
 
 const HomePage = () => {
     return (
         <main>
-            <section>
-                <h1>Welcome</h1>
-                <p>This is your PhoneBook</p>
+            <section className={PagesSCSS.section}>
+                <h1 className={PagesSCSS.header}>Welcome</h1>
+                <p className={PagesSCSS.text}>This is your PhoneBook</p>
             </section>
         </main>
     )
